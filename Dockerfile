@@ -1,4 +1,4 @@
-FROM akerl/ssh
+FROM dock0/ssh
 MAINTAINER akerl <me@lesaker.org>
 
 RUN pacman -S --noconfirm --needed weechat
