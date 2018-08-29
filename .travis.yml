@@ -1,0 +1,15 @@
+sudo: required
+dist: trusty
+services:
+- docker
+install:
+- docker build -t test .
+script:
+- docker run -ti test /bin/true
+- docker run -ti test /bin/bash --version
+- docker run -d -p 20:22 test && sleep 5
+- echo ' ' | netcat localhost 20
+notifications:
+  email: false
+  slack:
+    secure: SmgqKMxobYaaMaVp8pCUXh2XOroDA9P+M4MeOfUshVh1s5PYtdriULXqUxM8vKFVBzVCHjn8TC+WyTQTh6mUeZSnS5JjUzBvk6AwmzHisCQsgnV5XzMCs88ZvUnBNkgDVwLICOYaEanDCs65ziCa4UiU1KFbBdXoN8Aw4Ak7rAprG0wEEGwjZVz+MWbeg0C2KejE/HYqyXKLK/rI5TtrcP9UYEjGxKTpm6wdWQB9bZxhChOeLZLdEhEOnSOMb/q5mLQ/8Ffs63V8VpTodWm0cxlVr1/l09jFF0QmTpHdbok9sJqagCSuI63zakbXZjtcieQQTBucXGrLPryY+td38GIWTtQ6Q6MsEcg8ge3yMfqOmhrFIjmapRm4dIfIIeLmYM927im8eV4sxLUq6FdZ62nrZMeNR4TtFMUYxpj07liLzsKLCayfyhTHcsD1gw1PmXzn3I/5CykOwWLNzRVNBxTFbEmD0QkH6H/DQODKjcsHSVNHdcQH3PaRN0aN/PGYQRJEJj07X+qYKEQFyP6xutq2jZOCSzdgy3rlYlv9kMflX6hVgXaEPRzeLn4YUrtIrwkopw8ML/Y4ybmU+Mjy0XYfWhHAqCQpT0g2dh/nLT2qUECpNxF7l0/Qnz7dyv0fFrSgwfDBOONtckJtXtgo0Nbo1E2Ddbv6qlJ0+G9wO9E=
