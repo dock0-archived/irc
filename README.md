@@ -1,3 +1,5 @@
+**Deprecation Notice:** I'm no longer using this repo, in favor of IRCCloud.
+
 dock0/irc
 =======
 
